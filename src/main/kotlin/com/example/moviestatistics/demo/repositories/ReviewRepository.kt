@@ -14,19 +14,16 @@ import java.time.LocalDateTime
 import java.util.*
 
 @Repository
-interface ReviewRepository: PagingAndSortingRepository<Review, Long> {
+interface ReviewRepository : PagingAndSortingRepository<Review, Long> {
 
     override fun findById(id: Long): Optional<Review>
-
-//    fun findByRating(pageable: Pageable): Review
-
 
     @Query("SELECT avg(rating) from Review WHERE (user = :user) and date > :from and date < :to ")
     fun findByRatingAvg(
             @Param("user") user: User,
             @Param("from") from: LocalDate,
             @Param("to") to: LocalDate
-    ):Double
+    ): Double
 
 
     @Query("SELECT max (rating) from Review WHERE (user = :user) and date > :from and date < :to ")
@@ -34,14 +31,14 @@ interface ReviewRepository: PagingAndSortingRepository<Review, Long> {
             @Param("user") user: User,
             @Param("from") from: LocalDate,
             @Param("to") to: LocalDate
-    ):Double
+    ): Double
 
     @Query("SELECT min (rating) from Review WHERE (user = :user) and date > :from and date < :to ")
     fun findByRatingMin(
             @Param("user") user: User,
             @Param("from") from: LocalDate,
             @Param("to") to: LocalDate
-    ):Double
+    ): Double
 
 
 }

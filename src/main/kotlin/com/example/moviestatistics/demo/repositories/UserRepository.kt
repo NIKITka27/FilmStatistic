@@ -11,7 +11,7 @@ interface UserRepository: PagingAndSortingRepository<User, Long> {
 
     override fun findById(id: Long): Optional<User>
 
-//    fun findByName(name: String) : MutableList<User>
+
 
 
 }
