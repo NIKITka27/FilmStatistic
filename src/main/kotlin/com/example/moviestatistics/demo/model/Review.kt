@@ -1,12 +1,8 @@
 package com.example.moviestatistics.demo.model
 
-import org.springframework.beans.factory.annotation.Value
-import java.math.BigInteger
+
 import java.time.LocalDate
-import java.time.LocalDateTime
 import javax.persistence.*
-import javax.validation.constraints.Max
-import javax.validation.constraints.Min
 
 @Entity
 @Table(name = "review")
@@ -24,8 +20,6 @@ class Review constructor(
         var film: Film? = null,
 
         @Column
-        @Min(1)
-        @Max(5)
         var rating: Int? = null,
 
         @Column(name = "created_at")

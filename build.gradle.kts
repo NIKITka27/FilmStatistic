@@ -27,21 +27,16 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation("javax.validation:validation-api:2.0.1.Final")
-    implementation("org.hibernate:hibernate-validator:7.0.0.Final")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.liquibase:liquibase-core")
-    implementation("org.hibernate:hibernate-core:5.4.25.Final")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 
     implementation("mysql:mysql-connector-java:8.0.15")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
-tasks.create("stage") {
-    dependsOn("installDist")
-}
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
